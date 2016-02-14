@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions  
+	xmlns:glNS="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://www.xmlns.udev.com/GodinezLunch/GL/wsdl/1.0/GodinezLunchWS" 
+	xmlns:wsNS="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0/ws" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GodinezLunchWS" 
+	targetNamespace="http://www.xmlns.udev.com/GodinezLunch/GL/wsdl/1.0/GodinezLunchWS">
+	
+	<jaxws:bindings>
+		<jaxws:package name="com.mx.udev.godinez.web" />
+	</jaxws:bindings>
+	
+	<wsdl:types>
+		<xsd:schema>
+			<!-- Import schema SE-->
+			<xsd:import namespace="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0" schemaLocation="../xsd/GodinezLunch.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="calculateDistanceRequest">
+		<wsdl:part name="calculateDistanceRequest" element="glNS:calculateDistanceRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="calculateDistanceResponse">
+		<wsdl:part name="calculateDistanceResponse" element="glNS:calculateDistanceResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getNearbyPlacesRequest">
+		<wsdl:part name="getNearbyPlacesRequest" element="glNS:getNearbyPlacesRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getNearbyPlacesResponse">
+		<wsdl:part name="getNearbyPlacesResponse" element="glNS:getNearbyPlacesResponse"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="GodinezLunchPort">
+		<jaxws:bindings>
+			<jaxws:class name="GodinezLunchWS" />
+		</jaxws:bindings>
+		<!--  -->
+		<wsdl:operation name="calculateDistance">
+			<wsdl:input message="tns:calculateDistanceRequest"/>
+			<wsdl:output message="tns:calculateDistanceResponse"/>
+		</wsdl:operation>
+		<!--  -->
+		<wsdl:operation name="getNearbyPlaces">
+			<wsdl:input message="tns:getNearbyPlacesRequest"/>
+			<wsdl:output message="tns:getNearbyPlacesResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="GodinezLunchWSImplPortBinding" type="tns:GodinezLunchPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="calculateDistance">
+			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/calculateDistance"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getNearbyPlaces">
+			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/getNearbyPlaces"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="GodinezLunchWSImplService">
+		<jaxws:bindings>
+			<jaxws:class name="GodinezLunchWSClient" />
+		</jaxws:bindings>
+		<wsdl:port name="GodinezLunchWSImplPort" binding="tns:GodinezLunchWSImplPortBinding">
+			<soap:address location="http://localhost:9080/GodinezApp/GodinezLunchWSImplService"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

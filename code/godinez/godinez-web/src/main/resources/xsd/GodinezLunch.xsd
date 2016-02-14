@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+	xmlns="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0"  
+	jaxb:extensionBindingPrefixes="xjc" 
+	xmlns:tns="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0" 
+	targetNamespace="http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0">
+	<!-- XSD information schema -->
+	<xsd:annotation>
+		<xsd:documentation>
+			Service Engine schema as Salami Slice Design
+		</xsd:documentation>
+		<xsd:appinfo>
+			<jaxb:globalBindings>
+				<!-- Todas las clases son serializables -->
+				<jaxb:serializable uid="1" />
+			</jaxb:globalBindings>
+			<!-- Se especifica el paquete java de los tipos de datos -->
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.mx.udev.godinez.web.types" />
+			</jaxb:schemaBindings>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<!-- Root Element-->
+	<xsd:element name="getNearbyPlacesRequest" type="tns:getNearbyPlacesRequest"/>
+	<xsd:element name="getNearbyPlacesResponse" type="tns:getNearbyPlacesResponse"/>
+	
+	<xsd:element name="calculateDistanceRequest" type="tns:calculateDistanceRequest"/>
+	<xsd:element name="calculateDistanceResponse" type="tns:calculateDistanceResponse"/>
+	
+	<!-- Request-->
+	<xsd:complexType name="getNearbyPlacesRequest">
+		<xsd:sequence>
+			<xsd:element name="latitude" nillable="false" type="xsd:double"/>
+			<xsd:element name="longitude" nillable="false" type="xsd:double"/>
+			<xsd:element name="maxDistance" nillable="false" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="getNearbyPlacesResponse">
+		<xsd:sequence>
+			<xsd:element name="restaurants" type="tns:restaurantType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="calculateDistanceRequest">
+		<xsd:sequence>
+			<xsd:element name="InitialLocation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="latitude" nillable="false" type="xsd:double"/>
+						<xsd:element name="longitude" nillable="false" type="xsd:double"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FinalLocation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="latitude" nillable="false" type="xsd:double"/>
+						<xsd:element name="longitude" nillable="false" type="xsd:double"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="calculateDistanceResponse">
+		<xsd:sequence>
+			<xsd:element name="distance" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- complex types -->
+	<xsd:complexType name="restaurantType">
+		<xsd:sequence>
+			<xsd:element name="about">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="latitude" type="xsd:string"/>
+						<xsd:element name="longitude" type="xsd:string"/>
+						<xsd:element name="address" type="xsd:string"/>
+						<xsd:element name="phone" type="xsd:string"/>
+						<xsd:element name="enabled" type="xsd:boolean"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="serviceDetail">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="day" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="hour" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:attribute name="open" type="xsd:string"/>
+											<xsd:attribute name="close" type="xsd:string"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute name="key" type="xsd:long"/>
+								<xsd:attribute name="description" type="xsd:string"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="key" type="xsd:long"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+</xsd:schema>
