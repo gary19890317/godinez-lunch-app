@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "GodinezLunchWSImplService", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/wsdl/1.0/GodinezLunchWS", wsdlLocation = "file:/C:/Intellego/WorkSpaceGodinezLunchApp/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl")
+@WebServiceClient(name = "GodinezLunchWSImplService", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/wsdl/1.0/GodinezLunchWS", wsdlLocation = "file:/C:/Users/ocastellanos/git/godinez-lunch-app/code/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl")
 public class GodinezLunchWSClient
     extends Service
 {
@@ -30,9 +30,9 @@ public class GodinezLunchWSClient
         try {
             URL baseUrl;
             baseUrl = com.mx.udev.godinez.web.GodinezLunchWSClient.class.getResource(".");
-            url = new URL(baseUrl, "file:/C:/Intellego/WorkSpaceGodinezLunchApp/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl");
+            url = new URL(baseUrl, "file:/C:/Users/ocastellanos/git/godinez-lunch-app/code/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/C:/Intellego/WorkSpaceGodinezLunchApp/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/C:/Users/ocastellanos/git/godinez-lunch-app/code/godinez/godinez-web/src/main/resources/wsdl/GodinezLunchWSSOAP.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         GODINEZLUNCHWSIMPLSERVICE_WSDL_LOCATION = url;

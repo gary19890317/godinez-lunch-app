@@ -36,6 +36,14 @@
 		<wsdl:part name="getNearbyPlacesResponse" element="glNS:getNearbyPlacesResponse"/>
 	</wsdl:message>
 	
+	<wsdl:message name="getAllCategoriesRequest">
+		<wsdl:part name="getAllCategoriesRequest" element="glNS:getAllCategoriesRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getAllCategoriesResponse">
+		<wsdl:part name="getAllCategoriesResponse" element="glNS:getAllCategoriesResponse"/>
+	</wsdl:message>
+	
 	<wsdl:portType name="GodinezLunchPort">
 		<jaxws:bindings>
 			<jaxws:class name="GodinezLunchWS" />
@@ -49,6 +57,11 @@
 		<wsdl:operation name="getNearbyPlaces">
 			<wsdl:input message="tns:getNearbyPlacesRequest"/>
 			<wsdl:output message="tns:getNearbyPlacesResponse"/>
+		</wsdl:operation>
+		<!--  -->
+		<wsdl:operation name="getAllCategories">
+			<wsdl:input message="tns:getAllCategoriesRequest"/>
+			<wsdl:output message="tns:getAllCategoriesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	
@@ -65,6 +78,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="getNearbyPlaces">
 			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/getNearbyPlaces"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getAllCategories">
+			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/getAllCategories"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

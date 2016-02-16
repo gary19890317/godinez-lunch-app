@@ -9,6 +9,8 @@ import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import com.mx.udev.godinez.web.types.CalculateDistanceRequest;
 import com.mx.udev.godinez.web.types.CalculateDistanceResponse;
+import com.mx.udev.godinez.web.types.GetAllCategoriesRequest;
+import com.mx.udev.godinez.web.types.GetAllCategoriesResponse;
 import com.mx.udev.godinez.web.types.GetNearbyPlacesRequest;
 import com.mx.udev.godinez.web.types.GetNearbyPlacesResponse;
 import com.mx.udev.godinez.web.types.ObjectFactory;
@@ -51,5 +53,17 @@ public interface GodinezLunchWS {
     public GetNearbyPlacesResponse getNearbyPlaces(
         @WebParam(name = "getNearbyPlacesRequest", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getNearbyPlacesRequest")
         GetNearbyPlacesRequest getNearbyPlacesRequest);
+
+    /**
+     * 
+     * @param getAllCategoriesRequest
+     * @return
+     *     returns com.mx.udev.godinez.web.types.GetAllCategoriesResponse
+     */
+    @WebMethod(action = "http://www.udev.com/GodinezLunchWS/getAllCategories")
+    @WebResult(name = "getAllCategoriesResponse", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getAllCategoriesResponse")
+    public GetAllCategoriesResponse getAllCategories(
+        @WebParam(name = "getAllCategoriesRequest", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getAllCategoriesRequest")
+        GetAllCategoriesRequest getAllCategoriesRequest);
 
 }

@@ -8,11 +8,15 @@ import javax.jws.WebService;
 import org.apache.log4j.Logger;
 
 import com.mx.udev.godinez.IGodinezServiceIntegrator;
+import com.mx.udev.godinez.vo.CategoriaVO;
 import com.mx.udev.godinez.vo.FondaVO;
 import com.mx.udev.godinez.web.GodinezLunchWS;
 import com.mx.udev.godinez.web.types.CalculateDistanceRequest;
 import com.mx.udev.godinez.web.types.CalculateDistanceRequest.FinalLocation;
 import com.mx.udev.godinez.web.types.CalculateDistanceRequest.InitialLocation;
+import com.mx.udev.godinez.web.types.CategorieType;
+import com.mx.udev.godinez.web.types.GetAllCategoriesRequest;
+import com.mx.udev.godinez.web.types.GetAllCategoriesResponse;
 import com.mx.udev.godinez.web.types.RestaurantType.About;
 import com.mx.udev.godinez.web.types.CalculateDistanceResponse;
 import com.mx.udev.godinez.web.types.GetNearbyPlacesRequest;
@@ -97,6 +101,26 @@ public class GodinezLunchWSImpl implements GodinezLunchWS{
 		return nearbyPlacesRs;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.mx.udev.godinez.web.GodinezLunchWS#getAllCategories(com.mx.udev.godinez.web.types.GetAllCategoriesRequest)
+	 */
+	public GetAllCategoriesResponse getAllCategories(
+		GetAllCategoriesRequest getAllCategoriesRequest) {
+		GetAllCategoriesResponse categoriesRs = new GetAllCategoriesResponse();
+		
+		//getting list of categories
+		List<CategoriaVO> categories = iGodinezServiceIntegrator.getAllCategories();
+		if(!categories.isEmpty()){
+			for(CategoriaVO cat : categories){
+				CategorieType categorieType = new CategorieType();
+				categorieType.setKey(cat.getId());
+				categorieType.setDescription(cat.getDescripcion());
+				categoriesRs.getCategories().add(categorieType);
+			}
+		}else{
+			logger.info("Categories are empty");
+		}
+		return categoriesRs;
+	}
 
-	
 }
