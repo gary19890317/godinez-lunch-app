@@ -1,6 +1,7 @@
 package com.mx.udev.godinez.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * The Class FondaVO.
@@ -30,6 +31,9 @@ public class FondaVO implements Serializable{
 	
 	/** The habilitado. */
 	private Long habilitado;
+	
+	/** The horarios. */
+	private List<HorarioVO> horarios;
 
 	/**
 	 * Gets the id.
@@ -147,6 +151,20 @@ public class FondaVO implements Serializable{
 	 */
 	public void setHabilitado(Long habilitado) {
 		this.habilitado = habilitado;
+	}
+
+	/**
+	 * @return the horarios
+	 */
+	public List<HorarioVO> getHorarios() {
+		return horarios;
+	}
+
+	/**
+	 * @param horarios the horarios to set
+	 */
+	public void setHorarios(List<HorarioVO> horarios) {
+		this.horarios = horarios;
 	}
 	
 }

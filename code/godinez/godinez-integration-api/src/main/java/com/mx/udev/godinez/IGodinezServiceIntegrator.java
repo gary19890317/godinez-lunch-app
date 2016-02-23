@@ -2,6 +2,7 @@ package com.mx.udev.godinez;
 
 import java.util.List;
 
+import com.mx.udev.godinez.vo.CategoriaVO;
 import com.mx.udev.godinez.vo.FondaVO;
 
 /**
@@ -31,4 +32,20 @@ public interface IGodinezServiceIntegrator {
 	 * @return the nearby places
 	 */
 	List<FondaVO> getNearbyPlaces(double latitud, double longitud, double maxDistance);
+	
+	/**
+	 * Gets the all categories.
+	 *
+	 * @return the all categories
+	 */
+	List<CategoriaVO> getAllCategories();
+	
+	/**
+	 * Gets the my favorites.
+	 *
+	 * @param userId the user id
+	 * @return the my favorites
+	 */
+	List<FondaVO> getMyFavorites(long userId);
 }
+
