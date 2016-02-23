@@ -2,18 +2,26 @@ package com.mx.udev.godinez.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
-
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "FONDA")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name = "SEQ_ID_FONDA", sequenceName = "SEQ_ID_FONDA", allocationSize = 1, initialValue = 1)
 public class FondaDTO implements Serializable{
 	/**
 	 * 
@@ -22,6 +30,7 @@ public class FondaDTO implements Serializable{
 	
 	@Id
 	@Column(name = "ID_FONDA")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID_FONDA")
 	private Long id;
 	
 	@Basic
@@ -48,6 +57,12 @@ public class FondaDTO implements Serializable{
 	@Column(name = "HABILITADO")
 	private Long habilitado;
 
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "HORARIO_SERVICIO", 
+		joinColumns = @JoinColumn(name = "ID_FONDA"), 
+		inverseJoinColumns = @JoinColumn(name = "ID_HORARIO"))
+	private List<HorarioDTO> horarios;
+	
 	/**
 	 * @return the id
 	 */
@@ -144,6 +159,23 @@ public class FondaDTO implements Serializable{
 	 */
 	public void setHabilitado(Long habilitado) {
 		this.habilitado = habilitado;
+	}
+
+	/**
+	 * @return the horarios
+	 */
+	public List<HorarioDTO> getHorarios() {
+		if(horarios == null){
+			return new ArrayList<HorarioDTO>(); 
+		}
+		return horarios;
+	}
+
+	/**
+	 * @param horarios the horarios to set
+	 */
+	public void setHorarios(List<HorarioDTO> horarios) {
+		this.horarios = horarios;
 	}
 	
 }
