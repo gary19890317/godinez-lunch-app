@@ -11,11 +11,12 @@
 	
 	<mapping map-id="mapping_DTO_TO_VO"> 
     	<class-a>com.mx.udev.godinez.model.FondaDTO</class-a>
-    	<class-b>com.mx.udev.godinez.vo.FondaVO</class-b>   
-    	<field>
-      		<a>id</a>
-      		<b>id</b>
-    	</field>
+    	<class-b>com.mx.udev.godinez.vo.FondaVO</class-b>
+  	</mapping>
+  	
+  	<mapping map-id="mapping2_DTO_TO_VO"> 
+    	<class-a>com.mx.udev.godinez.model.CategoriaDTO</class-a>
+    	<class-b>com.mx.udev.godinez.vo.CategoriaVO</class-b>
   	</mapping>
   	
 </mappings>

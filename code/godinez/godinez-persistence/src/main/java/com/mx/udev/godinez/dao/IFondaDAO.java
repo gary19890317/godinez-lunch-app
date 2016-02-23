@@ -34,4 +34,13 @@ public interface IFondaDAO extends IGenericDAO<FondaDTO>{
 	 * @return the nearby places
 	 */
 	List<FondaVO> getNearbyPlaces(double latitud, double longitud, double maxDistance);
+	
+	/**
+	 * Gets the my favorites.
+	 *
+	 * @param userId the user id
+	 * @return the my favorites
+	 */
+	public List<FondaVO> getMyFavorites(long userId);
+	
 }
