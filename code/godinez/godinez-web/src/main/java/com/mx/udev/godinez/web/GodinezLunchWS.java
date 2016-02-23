@@ -11,6 +11,8 @@ import com.mx.udev.godinez.web.types.CalculateDistanceRequest;
 import com.mx.udev.godinez.web.types.CalculateDistanceResponse;
 import com.mx.udev.godinez.web.types.GetAllCategoriesRequest;
 import com.mx.udev.godinez.web.types.GetAllCategoriesResponse;
+import com.mx.udev.godinez.web.types.GetMyFavoritesRequest;
+import com.mx.udev.godinez.web.types.GetMyFavoritesResponse;
 import com.mx.udev.godinez.web.types.GetNearbyPlacesRequest;
 import com.mx.udev.godinez.web.types.GetNearbyPlacesResponse;
 import com.mx.udev.godinez.web.types.ObjectFactory;
@@ -65,5 +67,17 @@ public interface GodinezLunchWS {
     public GetAllCategoriesResponse getAllCategories(
         @WebParam(name = "getAllCategoriesRequest", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getAllCategoriesRequest")
         GetAllCategoriesRequest getAllCategoriesRequest);
+
+    /**
+     * 
+     * @param getMyFavoritesRequest
+     * @return
+     *     returns com.mx.udev.godinez.web.types.GetMyFavoritesResponse
+     */
+    @WebMethod(action = "http://www.udev.com/GodinezLunchWS/getMyFavorites")
+    @WebResult(name = "getMyFavoritesResponse", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getMyFavoritesResponse")
+    public GetMyFavoritesResponse getMyFavorites(
+        @WebParam(name = "getMyFavoritesRequest", targetNamespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", partName = "getMyFavoritesRequest")
+        GetMyFavoritesRequest getMyFavoritesRequest);
 
 }

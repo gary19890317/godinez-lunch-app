@@ -24,42 +24,20 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAllCategoriesRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getAllCategoriesRequest");
-    private final static QName _GetNearbyPlacesRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getNearbyPlacesRequest");
+    private final static QName _CalculateDistanceResponse_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "calculateDistanceResponse");
+    private final static QName _GetMyFavoritesResponse_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getMyFavoritesResponse");
+    private final static QName _CalculateDistanceRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "calculateDistanceRequest");
     private final static QName _GetNearbyPlacesResponse_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getNearbyPlacesResponse");
     private final static QName _GetAllCategoriesResponse_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getAllCategoriesResponse");
-    private final static QName _CalculateDistanceResponse_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "calculateDistanceResponse");
-    private final static QName _CalculateDistanceRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "calculateDistanceRequest");
+    private final static QName _GetNearbyPlacesRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getNearbyPlacesRequest");
+    private final static QName _GetAllCategoriesRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getAllCategoriesRequest");
+    private final static QName _GetMyFavoritesRequest_QNAME = new QName("http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", "getMyFavoritesRequest");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.mx.udev.godinez.web.types
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link GetAllCategoriesResponse }
-     * 
-     */
-    public GetAllCategoriesResponse createGetAllCategoriesResponse() {
-        return new GetAllCategoriesResponse();
-    }
-
-    /**
-     * Create an instance of {@link RestaurantType.ServiceDetail.Day.Hour }
-     * 
-     */
-    public RestaurantType.ServiceDetail.Day.Hour createRestaurantTypeServiceDetailDayHour() {
-        return new RestaurantType.ServiceDetail.Day.Hour();
-    }
-
-    /**
-     * Create an instance of {@link CalculateDistanceRequest.InitialLocation }
-     * 
-     */
-    public CalculateDistanceRequest.InitialLocation createCalculateDistanceRequestInitialLocation() {
-        return new CalculateDistanceRequest.InitialLocation();
     }
 
     /**
@@ -71,11 +49,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateDistanceRequest }
+     * Create an instance of {@link RestaurantType }
      * 
      */
-    public CalculateDistanceRequest createCalculateDistanceRequest() {
-        return new CalculateDistanceRequest();
+    public RestaurantType createRestaurantType() {
+        return new RestaurantType();
+    }
+
+    /**
+     * Create an instance of {@link GetMyFavoritesResponse }
+     * 
+     */
+    public GetMyFavoritesResponse createGetMyFavoritesResponse() {
+        return new GetMyFavoritesResponse();
     }
 
     /**
@@ -87,22 +73,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetNearbyPlacesResponse }
-     * 
-     */
-    public GetNearbyPlacesResponse createGetNearbyPlacesResponse() {
-        return new GetNearbyPlacesResponse();
-    }
-
-    /**
-     * Create an instance of {@link RestaurantType }
-     * 
-     */
-    public RestaurantType createRestaurantType() {
-        return new RestaurantType();
-    }
-
-    /**
      * Create an instance of {@link RestaurantType.ServiceDetail.Day }
      * 
      */
@@ -111,35 +81,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RestaurantType.ServiceDetail }
+     * Create an instance of {@link CalculateDistanceRequest }
      * 
      */
-    public RestaurantType.ServiceDetail createRestaurantTypeServiceDetail() {
-        return new RestaurantType.ServiceDetail();
-    }
-
-    /**
-     * Create an instance of {@link GetAllCategoriesRequest }
-     * 
-     */
-    public GetAllCategoriesRequest createGetAllCategoriesRequest() {
-        return new GetAllCategoriesRequest();
-    }
-
-    /**
-     * Create an instance of {@link CalculateDistanceResponse }
-     * 
-     */
-    public CalculateDistanceResponse createCalculateDistanceResponse() {
-        return new CalculateDistanceResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetNearbyPlacesRequest }
-     * 
-     */
-    public GetNearbyPlacesRequest createGetNearbyPlacesRequest() {
-        return new GetNearbyPlacesRequest();
+    public CalculateDistanceRequest createCalculateDistanceRequest() {
+        return new CalculateDistanceRequest();
     }
 
     /**
@@ -151,21 +97,102 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCategoriesRequest }{@code >}}
+     * Create an instance of {@link GetNearbyPlacesResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getAllCategoriesRequest")
-    public JAXBElement<GetAllCategoriesRequest> createGetAllCategoriesRequest(GetAllCategoriesRequest value) {
-        return new JAXBElement<GetAllCategoriesRequest>(_GetAllCategoriesRequest_QNAME, GetAllCategoriesRequest.class, null, value);
+    public GetNearbyPlacesResponse createGetNearbyPlacesResponse() {
+        return new GetNearbyPlacesResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetNearbyPlacesRequest }{@code >}}
+     * Create an instance of {@link GetAllCategoriesResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getNearbyPlacesRequest")
-    public JAXBElement<GetNearbyPlacesRequest> createGetNearbyPlacesRequest(GetNearbyPlacesRequest value) {
-        return new JAXBElement<GetNearbyPlacesRequest>(_GetNearbyPlacesRequest_QNAME, GetNearbyPlacesRequest.class, null, value);
+    public GetAllCategoriesResponse createGetAllCategoriesResponse() {
+        return new GetAllCategoriesResponse();
+    }
+
+    /**
+     * Create an instance of {@link RestaurantType.ServiceDetail }
+     * 
+     */
+    public RestaurantType.ServiceDetail createRestaurantTypeServiceDetail() {
+        return new RestaurantType.ServiceDetail();
+    }
+
+    /**
+     * Create an instance of {@link RestaurantType.ServiceDetail.Day.Hour }
+     * 
+     */
+    public RestaurantType.ServiceDetail.Day.Hour createRestaurantTypeServiceDetailDayHour() {
+        return new RestaurantType.ServiceDetail.Day.Hour();
+    }
+
+    /**
+     * Create an instance of {@link GetNearbyPlacesRequest }
+     * 
+     */
+    public GetNearbyPlacesRequest createGetNearbyPlacesRequest() {
+        return new GetNearbyPlacesRequest();
+    }
+
+    /**
+     * Create an instance of {@link CalculateDistanceRequest.InitialLocation }
+     * 
+     */
+    public CalculateDistanceRequest.InitialLocation createCalculateDistanceRequestInitialLocation() {
+        return new CalculateDistanceRequest.InitialLocation();
+    }
+
+    /**
+     * Create an instance of {@link GetAllCategoriesRequest }
+     * 
+     */
+    public GetAllCategoriesRequest createGetAllCategoriesRequest() {
+        return new GetAllCategoriesRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetMyFavoritesRequest }
+     * 
+     */
+    public GetMyFavoritesRequest createGetMyFavoritesRequest() {
+        return new GetMyFavoritesRequest();
+    }
+
+    /**
+     * Create an instance of {@link CalculateDistanceResponse }
+     * 
+     */
+    public CalculateDistanceResponse createCalculateDistanceResponse() {
+        return new CalculateDistanceResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDistanceResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "calculateDistanceResponse")
+    public JAXBElement<CalculateDistanceResponse> createCalculateDistanceResponse(CalculateDistanceResponse value) {
+        return new JAXBElement<CalculateDistanceResponse>(_CalculateDistanceResponse_QNAME, CalculateDistanceResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyFavoritesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getMyFavoritesResponse")
+    public JAXBElement<GetMyFavoritesResponse> createGetMyFavoritesResponse(GetMyFavoritesResponse value) {
+        return new JAXBElement<GetMyFavoritesResponse>(_GetMyFavoritesResponse_QNAME, GetMyFavoritesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDistanceRequest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "calculateDistanceRequest")
+    public JAXBElement<CalculateDistanceRequest> createCalculateDistanceRequest(CalculateDistanceRequest value) {
+        return new JAXBElement<CalculateDistanceRequest>(_CalculateDistanceRequest_QNAME, CalculateDistanceRequest.class, null, value);
     }
 
     /**
@@ -187,21 +214,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDistanceResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetNearbyPlacesRequest }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "calculateDistanceResponse")
-    public JAXBElement<CalculateDistanceResponse> createCalculateDistanceResponse(CalculateDistanceResponse value) {
-        return new JAXBElement<CalculateDistanceResponse>(_CalculateDistanceResponse_QNAME, CalculateDistanceResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getNearbyPlacesRequest")
+    public JAXBElement<GetNearbyPlacesRequest> createGetNearbyPlacesRequest(GetNearbyPlacesRequest value) {
+        return new JAXBElement<GetNearbyPlacesRequest>(_GetNearbyPlacesRequest_QNAME, GetNearbyPlacesRequest.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDistanceRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCategoriesRequest }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "calculateDistanceRequest")
-    public JAXBElement<CalculateDistanceRequest> createCalculateDistanceRequest(CalculateDistanceRequest value) {
-        return new JAXBElement<CalculateDistanceRequest>(_CalculateDistanceRequest_QNAME, CalculateDistanceRequest.class, null, value);
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getAllCategoriesRequest")
+    public JAXBElement<GetAllCategoriesRequest> createGetAllCategoriesRequest(GetAllCategoriesRequest value) {
+        return new JAXBElement<GetAllCategoriesRequest>(_GetAllCategoriesRequest_QNAME, GetAllCategoriesRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMyFavoritesRequest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.xmlns.udev.com/GodinezLunch/GL/datatypes/1.0", name = "getMyFavoritesRequest")
+    public JAXBElement<GetMyFavoritesRequest> createGetMyFavoritesRequest(GetMyFavoritesRequest value) {
+        return new JAXBElement<GetMyFavoritesRequest>(_GetMyFavoritesRequest_QNAME, GetMyFavoritesRequest.class, null, value);
     }
 
 }
