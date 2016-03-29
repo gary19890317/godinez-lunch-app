@@ -34,5 +34,12 @@ public class FondaServiceEJBImpl implements IFondaService{
 		double maxDistance) {
 		return iFondaDAO.getNearbyPlaces(latitud, longitud, maxDistance);
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see com.mx.udev.godinez.services.IFondaService#getMyFavorites(long)
+	 */
+	public List<FondaVO> getMyFavorites(long userId){
+		return iFondaDAO.getMyFavorites(userId);
+	}
+	
 }

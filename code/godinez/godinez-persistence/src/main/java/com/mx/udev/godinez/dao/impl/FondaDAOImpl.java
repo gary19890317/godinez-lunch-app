@@ -13,6 +13,7 @@ import org.dozer.DozerBeanMapper;
 import com.mx.udev.godinez.DistanceCalculator;
 import com.mx.udev.godinez.dao.IFondaDAO;
 import com.mx.udev.godinez.model.FondaDTO;
+import com.mx.udev.godinez.model.UsuarioDTO;
 import com.mx.udev.godinez.vo.FondaVO;
 
 /**
@@ -52,6 +53,7 @@ public class FondaDAOImpl extends GenericDAOImpl<FondaDTO> implements IFondaDAO{
 					if(distance <= maxDistance){
 						logger.info("Restaurant [ " + rest.getNombre() + " ] se encuentra en el rango de los " + maxDistance + " KM.");
 						restaurants.add(mapper.map(rest, FondaVO.class, "mapping_DTO_TO_VO"));
+						
 					}else{
 						logger.info("Restaurant [ " + rest.getNombre() + " ] se encuentra fuera del rango de los " + maxDistance + " KM.");
 					}
@@ -65,4 +67,28 @@ public class FondaDAOImpl extends GenericDAOImpl<FondaDTO> implements IFondaDAO{
 		return restaurants;
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see com.mx.udev.godinez.dao.IFondaDAO#getMyFavorites(long)
+	 */
+	public List<FondaVO> getMyFavorites(long userId){
+		List<FondaVO> restaurants = new ArrayList<FondaVO>();
+		try{
+			logger.info("Entity Manager -> " + getEntityManager());
+			UsuarioDTO usr = getEntityManager().find(UsuarioDTO.class, new Long(userId));
+			if(usr != null){
+				if(logger.isDebugEnabled()){
+					logger.debug("User -> " + usr.getNombre());
+				}
+				for(FondaDTO rest : usr.getRestaurants()){
+					restaurants.add(mapper.map(rest, FondaVO.class, "mapping_DTO_TO_VO"));
+				}
+			}else{
+				logger.info("La consulta no arroj\u00F3 resulados");
+			}
+		} catch (NoResultException e) {
+			logger.error(e);
+		}
+		return restaurants;
+	}
 }

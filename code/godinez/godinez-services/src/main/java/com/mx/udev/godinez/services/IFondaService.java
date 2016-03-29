@@ -33,4 +33,12 @@ public interface IFondaService {
 	 * @return the nearby places
 	 */
 	List<FondaVO> getNearbyPlaces(double latitud, double longitud, double maxDistance);
+	
+	/**
+	 * Gets the my favorites.
+	 *
+	 * @param userId the user id
+	 * @return the my favorites
+	 */
+	List<FondaVO> getMyFavorites(long userId);
 }

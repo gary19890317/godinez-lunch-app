@@ -7,6 +7,9 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<jta-data-source>jdbc/godinezAppDS</jta-data-source>
 		<class>com.mx.udev.godinez.model.FondaDTO</class>
+		<class>com.mx.udev.godinez.model.CategoriaDTO</class>
+		<class>com.mx.udev.godinez.model.HorarioDTO</class>
+		<class>com.mx.udev.godinez.model.UsuarioDTO</class>
     
     	<properties>
 			<property name="eclipselink.target-database" value="Oracle"/>

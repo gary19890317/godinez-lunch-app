@@ -44,6 +44,14 @@
 		<wsdl:part name="getAllCategoriesResponse" element="glNS:getAllCategoriesResponse"/>
 	</wsdl:message>
 	
+	<wsdl:message name="getMyFavoritesRequest">
+		<wsdl:part name="getMyFavoritesRequest" element="glNS:getMyFavoritesRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getMyFavoritesResponse">
+		<wsdl:part name="getMyFavoritesResponse" element="glNS:getMyFavoritesResponse"/>
+	</wsdl:message>
+	
 	<wsdl:portType name="GodinezLunchPort">
 		<jaxws:bindings>
 			<jaxws:class name="GodinezLunchWS" />
@@ -62,6 +70,11 @@
 		<wsdl:operation name="getAllCategories">
 			<wsdl:input message="tns:getAllCategoriesRequest"/>
 			<wsdl:output message="tns:getAllCategoriesResponse"/>
+		</wsdl:operation>
+		<!--  -->
+		<wsdl:operation name="getMyFavorites">
+			<wsdl:input message="tns:getMyFavoritesRequest"/>
+			<wsdl:output message="tns:getMyFavoritesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	
@@ -87,6 +100,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="getAllCategories">
 			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/getAllCategories"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMyFavorites">
+			<soap:operation soapAction="http://www.udev.com/GodinezLunchWS/getMyFavorites"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
