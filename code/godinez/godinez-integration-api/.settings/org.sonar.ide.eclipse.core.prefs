@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.jdbc.password\=sonar\r\nsonar.host.url\=http\://10.11.6.7\:9000/sonar/\r\nsonar.exclusions\=**/**Error.java, \n\t\t\t**/**Util.java, \n\t\t\t**/**Constants.java,\n\t\t\t**/**DO.java,\n\t\t\t**/**Enum.java,\n\t\t\t**/**Exception.java,\n\t\t\t**/**Check.java\r\nsonar.jdbc.username\=sonar\r\nsonar.jdbc.url\=jdbc\:mysql\://10.11.6.7\:3306/sonar\r\nsonar.login\=ocastellanos\r\nsonar.skippedModules\=transferencias-portalsaftv-web,transferencias-portalweb-web\r\nsonar.password\=C@g0*2015
+projectKey=com.mx.udev.godinez\:godinez-integration-api
+serverUrl=http\://localhost\:9000
+version=2
